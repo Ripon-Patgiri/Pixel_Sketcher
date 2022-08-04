@@ -1,18 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+}
 
+body {
+    background-color: wheat;
+    font-family: 'Catamaran', sans-serif;
+}
 
 /* HEADER */
 
 .header {
     display: flex;
     justify-content: center;
+    border: 1px dotted grey;
 }
 
 .title {
     font-size: 48px;
-    background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+    background-image: linear-gradient(to left, rgb(0, 0, 0), rgb(39, 39, 39), rgb(65, 65, 65),rgb(29, 29, 44), rgb(113, 113, 121));
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
     font-family: 'Permanent Marker', cursive;
+}
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.fa-github {
+    color: grey;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-linkedin {
+    color: grey;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-wordpress {
+    color: grey;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg)scale(1.2);
+}
+
+.fa-linkedin:hover {
+    transform: rotate(360deg)scale(1.2);
+}
+
+.fa-wordpress:hover {
+    transform: rotate(360deg)scale(1.2);
 }
