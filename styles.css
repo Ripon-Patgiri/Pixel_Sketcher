@@ -1,0 +1,18 @@
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 48px;
+    background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    font-family: 'Permanent Marker', cursive;
+}
