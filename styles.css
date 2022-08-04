@@ -1,4 +1,12 @@
-* {
+:root {
+    --body : wheat;
+    --buttons : coral;
+}
+
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
 }
@@ -9,8 +17,20 @@ html {
 }
 
 body {
-    background-color: wheat;
+    background-color: var(--body);
     font-family: 'Catamaran', sans-serif;
+    line-height: 1.6;
+}
+
+button,
+input {
+  width: 100%;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
 }
 
 /* HEADER */
@@ -23,13 +43,84 @@ body {
 
 .title {
     font-size: 48px;
-    background-image: linear-gradient(to left, rgb(0, 0, 0), rgb(39, 39, 39), rgb(65, 65, 65),rgb(29, 29, 44), rgb(113, 113, 121));
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(26, 19, 19), rgb(61, 17, 17),rgb(20, 20, 66), rgb(100, 1, 17));
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
     font-family: 'Permanent Marker', cursive;
 }
+
+/* MAIN */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 200px;
+    background-color: rgb(163, 148, 119);
+}
+
+.penClr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bgClr {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+}
+
+button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    background-color: var(--buttons);
+    border-radius: 4px;
+}
+
+button.active {
+    background-color: var(--body);
+}
+
+button,
+input[type='color'] {
+    transition: transform 0.1s ease-in-out;
+}
+
+button:hover,
+input[type='color']:hover {
+    transform: scale(1.05);
+}
+
+input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+}
+
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 40px;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
 
 /* FOOTER */
 
