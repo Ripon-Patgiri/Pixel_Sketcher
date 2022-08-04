@@ -43,7 +43,7 @@ input {
 
 .title {
     font-size: 48px;
-    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(26, 19, 19), rgb(61, 17, 17),rgb(20, 20, 66), rgb(100, 1, 17));
+    background-image: linear-gradient(to right, black, darkgrey, purple, brown, darkblue, darkred, grey, black);
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
@@ -161,19 +161,19 @@ input[type='color']::-webkit-color-swatch-wrapper {
 }
 
 .fa-github {
-    color: grey;
+    color: black;
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
 }
 
 .fa-linkedin {
-    color: grey;
+    color: black;
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
 }
 
 .fa-wordpress {
-    color: grey;
+    color: black;
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
 }
