@@ -1,4 +1,4 @@
-const DEFAULT_SIZE = 16;
+const DEFAULT_SIZE = 14;
 const DEFAULT_MODE = 'color';
 const DEFAULT_COLOR = '#333333';
 const DEFAULT_BGCOLOR = 'coral';
@@ -81,6 +81,9 @@ function setupGrid(size) {
         gridElement.classList.add('grid-element');
         gridElement.addEventListener('mouseover', changeColor);
         gridElement.addEventListener('mousedown', changeColor);
+        if(NO_GRID === 0){
+            gridElement.classList.add('grid-border');
+        }
         grid.appendChild(gridElement);
     }
 }
@@ -92,7 +95,6 @@ function toggleGrid() {
             e.classList.add('grid-border');
         })
         NO_GRID = 0;
-        console.log(NO_GRID);
     }
     else if (NO_GRID === 0){
         gridBorder.forEach(function (e) {
