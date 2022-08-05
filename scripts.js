@@ -1,14 +1,22 @@
 const DEFAULT_SIZE = 16;
 const DEFAULT_MODE = 'color';
 const DEFAULT_COLOR = '#333333';
+const DEFAULT_BGCOLOR = 'coral';
 
 let NO_GRID = 1;
+let currentBgClr = DEFAULT_BGCOLOR;
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
 let currentSize = DEFAULT_SIZE;
 
 function setCurrentColor(newColor) {
     currentColor = newColor;
+}
+
+function setCurrentBgClr(newBgClr) {
+    currentBgClr = newBgClr;
+    const gridstyle = document.getElementById('grid');
+    gridstyle.style.backgroundColor = currentBgClr;
 }
 
 function setCurrentMode(newMode) {
@@ -32,6 +40,7 @@ const grid = document.getElementById('grid');
 const gridBtn = document.getElementById('gridBtn');
 
 penColor.oninput = (e) => setCurrentColor(e.target.value);
+bgColor.oninput = (e) => setCurrentBgClr(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
 rainbowBtn.onclick = () => setCurrentMode('rainbow');
 eraserBtn.onclick = () => setCurrentMode('eraser');
@@ -102,9 +111,9 @@ function changeColor(e) {
       const randomB = Math.floor(Math.random() * 256)
       e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
     } else if (currentMode === 'color') {
-      e.target.style.backgroundColor = currentColor
+      e.target.style.backgroundColor = currentColor;
     } else if (currentMode === 'eraser') {
-      e.target.style.backgroundColor = '#fefefe'
+      e.target.style.backgroundColor = currentBgClr;
     }
   }
   
@@ -135,5 +144,6 @@ function changeColor(e) {
 
 window.onload = () => {
     setupGrid(DEFAULT_SIZE);
+    activateButton(DEFAULT_MODE);
 }
 
