@@ -2,6 +2,7 @@ const DEFAULT_SIZE = 16;
 const DEFAULT_MODE = 'color';
 const DEFAULT_COLOR = '#333333';
 
+let NO_GRID = 1;
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
 let currentSize = DEFAULT_SIZE;
@@ -28,6 +29,7 @@ const clearBtn = document.getElementById('clearBtn');
 const sizeValue = document.getElementById('sizeValue');
 const sizeSlider = document.getElementById('sizeSlider');
 const grid = document.getElementById('grid');
+const gridBtn = document.getElementById('gridBtn');
 
 penColor.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
@@ -36,6 +38,7 @@ eraserBtn.onclick = () => setCurrentMode('eraser');
 clearBtn.onclick = () => reloadGrid();
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
+gridBtn.onclick = () => toggleGrid();
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true);
@@ -65,11 +68,28 @@ function setupGrid(size) {
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     for (let i = 0; i < size * size; i++) {
-        const gridElement = document.createElement('div');
+        let gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
         gridElement.addEventListener('mouseover', changeColor);
         gridElement.addEventListener('mousedown', changeColor);
         grid.appendChild(gridElement);
+    }
+}
+
+function toggleGrid() {
+    let gridBorder = document.querySelectorAll('.grid-element');
+    if(NO_GRID === 1) {
+        gridBorder.forEach(function (e) {
+            e.classList.add('grid-border');
+        })
+        NO_GRID = 0;
+        console.log(NO_GRID);
+    }
+    else if (NO_GRID === 0){
+        gridBorder.forEach(function (e) {
+            e.classList.remove('grid-border');
+        })
+        NO_GRID = 1;
     }
 }
 
@@ -96,6 +116,10 @@ function changeColor(e) {
     } else if (currentMode === 'eraser') {
       eraserBtn.classList.remove('active')
     }
+    else if (currentMode === 'toggle') {
+        gridBtn.classList.remove('active')
+    }
+    
   
     if (newMode === 'rainbow') {
       rainbowBtn.classList.add('active')
@@ -104,8 +128,12 @@ function changeColor(e) {
     } else if (newMode === 'eraser') {
       eraserBtn.classList.add('active')
     }
+     else if (newMode === 'toggle') {
+        gridBtn.classList.add('active');
+     }
   }
 
 window.onload = () => {
     setupGrid(DEFAULT_SIZE);
 }
+
