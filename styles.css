@@ -1,6 +1,9 @@
 :root {
-    --body : wheat;
-    --buttons : coral;
+    --bodyBgClr : #e8d0a9;
+    --headerFooterClr : #c1dad6;
+    --button : #acd1e9;
+    --buttonHover : #6d929b;
+    --buttonActive : #b7afa3;
 }
 
 
@@ -18,7 +21,7 @@ html {
 }
 
 body {
-    background-color: var(--body);
+    background-color: var(--bodyBgClr);
     font-family: 'Catamaran', sans-serif;
     line-height: 1.6;
     /* footer support */
@@ -42,11 +45,14 @@ input {
     display: flex;
     justify-content: center;
     border: 1px solid grey;
+    background-color: var(--headerFooterClr);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .title {
     font-size: 48px;
-    background-image: linear-gradient(to right, black, darkgrey, purple, brown, darkblue, darkred, grey, black);
+    background-image: linear-gradient(to right, #cc6600, #fffbd0, #ff9900, #c13100);
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
@@ -86,11 +92,12 @@ input {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 4px;
-    background-color: var(--buttons);
+    background-color: var(--button);
 }
 
 .penClr:hover {
     transform: scale(1.05);
+    background-color: var(--buttonHover);
 }
 
 .bgClr {
@@ -104,23 +111,32 @@ input {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 4px;
-    background-color: var(--buttons);
+    background-color: var(--button);
 }
 
 .bgClr:hover {
     transform: scale(1.05);
+    background-color: var(--buttonHover);
 }
 
 button {
     padding: 5px 10px;
     border: 1px solid black;
-    background-color: var(--buttons);
+    background-color: var(--button);
     border-radius: 4px;
 }
 
 button.active {
-    background-color: grey;
+    background-color: var(--buttonActive);
     color: red;
+}
+
+#clearBtn:active {
+    background-color: var(--buttonActive);
+}
+
+#gridBtn:active {
+    background-color: var(--buttonActive);
 }
 
 button,
@@ -206,6 +222,9 @@ input[type='range']::-webkit-slider-thumb {
     width: 100%;
     padding: 10px;
     border: 1px solid grey;
+    background-color: var(--headerFooterClr);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .fa-github {
